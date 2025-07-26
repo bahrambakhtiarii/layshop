@@ -18,10 +18,10 @@ const Header = () => {
 
 
 
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+    <header className="grid bg-white h-30 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
 
 
-      <div className="h-32 rounded lg:col-span-2">
+      <div className="rounded lg:col-span-2">
 
         <div className='relative'>
           <Link href={'/'} className='hidden md:block'>
@@ -84,7 +84,7 @@ const Header = () => {
 
       </div>
 
-      <div className="hidden h-32 mt-12 rounded lg:flex ">
+      <div className="hidden mt-12 rounded lg:flex ">
 
         <div>
           <a
@@ -96,7 +96,7 @@ const Header = () => {
           ></span>
 
           <span
-            className="relative text-sm font-medium text-[#212A3E] transition-colors group-hover:text-white"
+            className="relative text-semiBold font-medium text-[#212A3E] transition-colors group-hover:text-white"
           >
             ورود
           </span>
@@ -111,17 +111,21 @@ const Header = () => {
           ></span>
 
           <span
-            className="relative text-sm font-medium text-[#212A3E] transition-colors group-hover:text-white"
+            className="relative text-semiBold font-medium text-[#212A3E] transition-colors group-hover:text-white"
           >
             ثبت نام
           </span>
         </a>
         </div>
+
+
         <div className='mr-4'>
           <Badge />
         </div>
+
+
       </div>
-    </div>
+    </header>
 
 
   )

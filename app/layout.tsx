@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from '@/components/ThemeRegistry';
 import Header from "@/components/Header";
+import DesktopMenu from "@/components/navigation/DesktopMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
   description:" لی شاپ: فروشگاه آنلاین و مرجع تخصصی خرید انواع محصولات دیجیتال",
 };
 
+
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,10 +32,11 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased"
       >
         <ThemeRegistry options={{ key: 'mui' }}>        
           <Header />
+          <DesktopMenu />
           {children}
         </ThemeRegistry>
       </body>
