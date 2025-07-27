@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeRegistry from '@/components/ThemeRegistry';
 import Header from "@/components/Header";
 import DesktopMenu from "@/components/navigation/DesktopMenu";
+import MobilMenu from "@/components/navigation/MobilMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ThemeRegistry options={{ key: 'mui' }}>        
           <Header />
           <DesktopMenu />
+          <MobilMenu />
           {children}
         </ThemeRegistry>
       </body>
