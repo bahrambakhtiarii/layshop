@@ -13,119 +13,58 @@ import Badge from '@/components/Badge';
 
 const Header = () => {
   return (
-   
 
-
-
-
-    <header className="grid bg-white h-30 grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-
-
-      <div className="rounded lg:col-span-2">
-
-        <div className='relative'>
-          <Link href={'/'} className='hidden md:block'>
-              <Image
-                src={logoDes}
-                alt= 'web site logo'
-                width={135} 
-                height={135} 
-                className="absolute w-[135px] h-[135px] top-0 right-20 object-cover"
-              />
-          </Link> 
-          <Link href={'/'} className='md:hidden'>
-              <Image
-                src={logoMob}
-                alt= 'web site logo'
-                width={87} 
-                height={23} 
-                className="absolute w-[87px] h-[23px] top-13 right-5 object-cover"
-              />
-          </Link> 
-          
-        </div>
-
-        <div className='
-              absolute 
-              bg-[#DDE3EC]
-              w-[262px] h-[42px] 
-              rounded-[50px]
-              mt-11 mr-30 
-              flex items-center px-4 
-              md:mt-12 md:mr-60 md:w-[578px] md:h-[42px]
-              lg:w-[420px] 
-          '>
-          <Image
-              src={searchicon}
-              alt='search icon'
-              width={25}
-              height={25}
-              className="
-                  w-[16px] h-[16px] 
-                  mr-2 
-                  md:w-[25px] md:h-[25px]
-              "
-          />
-          <input
-              type="search"
-              placeholder="جستجو در لی شاپ" 
-              className='
-                  flex-grow 
-                  h-full 
-                  bg-transparent
-                  focus:outline-none
-                  text-sm 
-                  md:text-base 
-                  placeholder-gray-500 
-                  pr-2
-              '
-          />
-        </div>
-
-      </div>
-
-      <div className="hidden mt-12 rounded lg:flex ">
-
-        <div>
-          <a
-          className="group relative inline-block overflow-hidden border-2 border-[#DDE3EC] rounded-r-[50px] px-6 py-2 focus:ring-3 focus:outline-hidden"
-          href="/testlink"
-        >
-          <span
-            className="absolute inset-y-0 right-0 w-[2px] bg-[#14274E] transition-all group-hover:w-full"
-          ></span>
-
-          <span
-            className="relative text-semiBold font-medium text-[#212A3E] transition-colors group-hover:text-white"
-          >
-            ورود
-          </span>
-        </a>
+    <header className="bg-white w-full px-4 py-2">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
         
-        <a
-          className="group relative inline-block overflow-hidden border-2 border-[#DDE3EC] rounded-l-[50px] px-5 py-2 focus:ring-3 focus:outline-hidden"
-          href="/testlink"
-        >
-          <span
-            className="absolute inset-y-0 left-0 w-[2px] bg-[#14274E] transition-all group-hover:w-full"
-          ></span>
+        <div className="w-full flex items-center justify-between gap-4 lg:w-4/10">
 
-          <span
-            className="relative text-semiBold font-medium text-[#212A3E] transition-colors group-hover:text-white"
-          >
-            ثبت نام
-          </span>
-        </a>
+          <Link href="/" className="shrink-0">
+            <Image
+              src={logoDes}
+              alt="logo"
+              width={135}
+              height={135}
+              className="hidden md:block w-[135px] h-[135px] object-contain"
+            />
+            <Image
+              src={logoMob}
+              alt="logo"
+              width={87}
+              height={23}
+              className="md:hidden w-[87px] h-[23px] object-contain"
+            />
+          </Link>
+
+          <div className="flex items-center bg-[#DDE3EC] rounded-[50px] px-4 w-full h-[42px] max-w-md">
+            <Image src={searchicon} alt="search" width={20} height={20} className="mr-2" />
+            <input
+              type="search"
+              placeholder="جستجو در لی شاپ"
+              className="flex-grow bg-transparent focus:outline-none text-sm md:text-base placeholder-gray-500"
+            />
+          </div>
+
         </div>
 
+        <div className="hidden lg:flex lg:items-center">
+          <a className="group relative inline-block overflow-hidden border-2 border-[#DDE3EC] rounded-r-[50px] px-6 py-2 focus:ring-3 focus:outline-hidden" href="/testlink">
+            <span className="absolute inset-y-0 right-0 w-[2px] bg-[#14274E] transition-all group-hover:w-full" />
+            <span className="relative font-medium text-[#212A3E] transition-colors group-hover:text-white">ورود</span>
+          </a>
+          <a className="group relative inline-block overflow-hidden border-2 border-[#DDE3EC] rounded-l-[50px] px-5 py-2" href="/testlink">
+            <span className="absolute inset-y-0 left-0 w-[2px] bg-[#14274E] transition-all group-hover:w-full" />
+            <span className="relative font-medium text-[#212A3E] transition-colors group-hover:text-white">ثبت نام</span>
+          </a>
 
-        <div className='mr-4'>
-          <Badge />
+          <div className="mr-4">
+            <Badge />
+          </div>
         </div>
-
 
       </div>
     </header>
+
 
 
   )
