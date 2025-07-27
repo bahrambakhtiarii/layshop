@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import DesktopMegaHover from "./DesktopMegaHover";
 
 
 interface SubMenuItem {
@@ -25,6 +26,7 @@ interface MenuItem {
 const DesktopMegaMenu = () => {
 
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+    const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
     
 
     useEffect(() => {
@@ -51,13 +53,20 @@ const DesktopMegaMenu = () => {
   }, []);
 
   return (
-    <div className='bg-white shadow-lg p-6 mt-6 w-[270px] h-[400px] rounded-[10px]'>
-      <ul>
+    <div className='bg-white shadow-lg p-6 mt-6 w-[270px] max-h-[400px] rounded-[10px]'>
+      <ul className="z-500">
         {menuItems.map(item =>
-            <li key={item.id} >
+            <li 
+                key={item.id}
+                onMouseEnter={() => setHoveredItemId(item.id)}
+                onMouseLeave={() => setHoveredItemId(null)} 
+                className="w-full "
+                
+            >
                 <Link 
                     href="/"
-                    className='flex border-b-1 border-[rgba(221,227,236,0.4)] w-[230px] gap-[7px] p-2 items-center hover:bg-[#DDE3EC] cursor-pointer'
+                    className='flex border-b-1 border-[rgba(221,227,236,0.4)] w-[230px] gap-[7px] p-2 items-center hover:bg-[#DDE3EC] cursor-pointer z-1000'
+                    
                 >
 
                     <div className='w-[40px] h-[40px] bg-[#DDE3EC] rounded-full shadow-[0_2px_3px_rgba(0,0,0,0.1)]'>
@@ -73,7 +82,12 @@ const DesktopMegaMenu = () => {
                         <h4 className="text-[14px] font-semibold">{item.title}</h4>
                     </div>
                 </Link>
-        </li>
+                {hoveredItemId === item.id && item.subCategories && (
+                    <div className="absolute top-6 right-[250px] z-0">
+                        <DesktopMegaHover subCategories={item.subCategories} />
+                    </div>
+                )}
+            </li>
         )}
         
       </ul>

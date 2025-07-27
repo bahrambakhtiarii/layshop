@@ -40,6 +40,33 @@ const MENU_DATA: MenuItem[] = [
           { title: 'همه مچ بندهای هوشمند', linkTo: '/products?category=smartband' },
         ],
       },
+      {
+        title: 'لوازم جانبی ساعت هوشمند',
+        items: [
+          { title: 'بند ساعت هوشمند', linkTo: '/products?category=smartwatch-accessories&type=band' },
+          { title: 'شارژر ساعت هوشمند', linkTo: '/products?category=smartwatch-accessories&type=charger' },
+          { title: 'محافظ صفحه ساعت', linkTo: '/products?category=smartwatch-accessories&type=screen-protector' },
+          { title: 'همه لوازم جانبی ساعت', linkTo: '/products?category=smartwatch-accessories' },
+        ],
+      },
+      {
+        title: 'برندهای محبوب ساعت هوشمند',
+        items: [
+          { title: 'ساعت هوشمند Amazfit', linkTo: '/products?category=smartwatch&brand=Amazfit' },
+          { title: 'ساعت هوشمند Huawei', linkTo: '/products?category=smartwatch&brand=Huawei' },
+          { title: 'ساعت هوشمند Garmin', linkTo: '/products?category=smartwatch&brand=Garmin' },
+          { title: 'مشاهده همه برندها', linkTo: '/products?category=smartwatch&view=brands' },
+        ],
+      },
+      {
+        title: 'ساعت‌های کودک و سالمندان',
+        items: [
+          { title: 'ساعت هوشمند کودک', linkTo: '/products?category=kids-smartwatch' },
+          { title: 'ساعت هوشمند سالمندان', linkTo: '/products?category=elderly-smartwatch' },
+          { title: 'ساعت‌های سیم‌کارت‌خور', linkTo: '/products?category=smartwatch&feature=sim-card' },
+          { title: 'ساعت‌های مخصوص ورزش', linkTo: '/products?category=smartwatch&feature=sport' },
+        ],
+      },
     ],
   },
   {
