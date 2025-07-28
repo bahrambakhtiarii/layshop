@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import { li } from 'framer-motion/client';
 
 
 
@@ -22,13 +21,11 @@ type Props = {
 
 const MobileMenuItems: React.FC<Props> = ({ subMenuItems }) => {
 
-  const [openAccordionIndex, setOpenAccordionIndex] = useState(null);
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
 
-  const handleAccordionClick = (index: any) => {
+  const handleAccordionClick = (index: number) => {
     setOpenAccordionIndex(openAccordionIndex === index ? null : index);
   };
-
-  const [accordionOpen, setAccordionOpen] = useState(false);
 
 
   return (

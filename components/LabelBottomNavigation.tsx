@@ -33,7 +33,7 @@ export default function LabelBottomNavigation() {
             default:
                 break;
         }
-    }, [value]);
+    }, [value, router]);
 
 
   return (

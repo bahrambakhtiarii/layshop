@@ -1,7 +1,5 @@
 'use client';
-import { div } from "framer-motion/client";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenuItems from "./MobileMenuItems";
 
