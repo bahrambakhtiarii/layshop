@@ -6,70 +6,100 @@ import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import MobileMenu from './navigation/MobileMenu';
 
 export default function LabelBottomNavigation() {
-  const [value, setValue] = React.useState('recents');
+    const [value, setValue] = useState("home");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const router = useRouter();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
+    
+    useEffect(() => {
+        switch (value){
+            case "home":
+                router.push("/");
+                break;
+            case "menu":
+                setIsMenuOpen(true);
+                break;
+            case "cart":
+                router.push("/testlink");
+                break;
+            case "profile":
+                router.push("/testlink");
+                break;
+            default:
+                break;
+        }
+    }, [value]);
+
 
   return (
-    <BottomNavigation sx={{ color: "#2568CC" }} value={value} onChange={handleChange}>
+    <>
+        {isMenuOpen && value === "menu" &&  (
+            <div className="fixed top-0 left-0 w-full h-full bg-white z-50">
+                {/* <div className="p-4">
+                    <h2>منو</h2>
+                    <button onClick={() => setIsMenuOpen(false)}>بستن</button>
+                </div> */}
+                <MobileMenu />
+            </div>
+        )}
+        <BottomNavigation 
+            sx={{ color: "#2568CC", position: "fixed", bottom: 0, width: "100%", zIndex: 60 }}
+            value={value} 
+            onChange={(event, newValue) => setValue(newValue)}
+        >
 
 
-        <BottomNavigationAction 
+            <BottomNavigationAction 
+                sx={{
+                    color: "#394867",
+                    '&.Mui-selected': {
+                        color: '#212A3E',
+                    }
+                }}
+                value="home" 
+                icon={<HomeOutlinedIcon />} 
+            />
+
+            <BottomNavigationAction
+                sx={{
+                    color: "#394867",
+                    '&.Mui-selected': {
+                        color: '#212A3E',
+                    }
+                }}
+                value="menu"
+                icon={<WidgetsOutlinedIcon />}
+            />
+            
+        <BottomNavigationAction
             sx={{
                 color: "#394867",
                 '&.Mui-selected': {
                     color: '#212A3E',
                 }
             }}
-            value="home" 
-            icon={<HomeOutlinedIcon />} 
+            value="cart"
+            icon={<ShoppingCartOutlinedIcon />}
         />
 
         <BottomNavigationAction
+            value="profile"
             sx={{
-                    color: "#394867",
-                    '&.Mui-selected': {
-                        color: '#212A3E',
-                    }
-                }}
-            value="menu"
-            icon={<WidgetsOutlinedIcon />}
-        />
-        
-        
+                color: "#394867",
+                '&.Mui-selected': {
+                    color: '#212A3E',
+                }
+            }}
 
-      <BottomNavigationAction
-        sx={{
-            color: "#394867",
-            '&.Mui-selected': {
-                color: '#212A3E',
-            }
-        }}
-        value="cart"
-        icon={<ShoppingCartOutlinedIcon />}
-      />
-
-      
-
-    <BottomNavigationAction
-        value="profile"
-        sx={{
-            color: "#394867",
-            '&.Mui-selected': {
-                color: '#212A3E',
-            }
-        }}
-
-        icon={<Person2OutlinedIcon />}
-    />  
-
-      
-
-
-    </BottomNavigation>
+            icon={<Person2OutlinedIcon />}
+        />  
+        </BottomNavigation>
+    </>
+    
   );
 }

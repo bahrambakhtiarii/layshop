@@ -31,26 +31,26 @@ const DesktopMegaMenu = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-        try {
-            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-            const res = await fetch(`${baseUrl}/api/menu`, {
-            cache: 'no-store'
-            });
+            try {
+                    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+                    const res = await fetch(`${baseUrl}/api/menu`, {
+                    cache: 'no-store'
+                    });
 
-            if (!res.ok) {
-            console.error(`Failed to fetch menu data: ${res.status} ${res.statusText}`);
-            return;
+                    if (!res.ok) {
+                        console.error(`Failed to fetch menu data: ${res.status} ${res.statusText}`);
+                        return;
+                    }
+
+                    const data = await res.json();
+                    setMenuItems(data);
+            } catch (error) {
+                console.error('Error fetching menu data:', error);
             }
+        };
 
-            const data = await res.json();
-            setMenuItems(data);
-        } catch (error) {
-            console.error('Error fetching menu data:', error);
-        }
-    };
-
-    fetchData();
-  }, []);
+        fetchData();
+    }, []);
 
   return (
     <div className='bg-white shadow-lg p-6 mt-6 w-[270px] max-h-[400px] rounded-[10px]'>
