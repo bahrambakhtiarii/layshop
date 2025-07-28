@@ -37,13 +37,9 @@ export default function LabelBottomNavigation() {
 
 
   return (
-    <>
+    <div className='lg:hidden'>
         {isMenuOpen && value === "menu" &&  (
             <div className="fixed top-0 left-0 w-full h-full bg-white z-50">
-                {/* <div className="p-4">
-                    <h2>منو</h2>
-                    <button onClick={() => setIsMenuOpen(false)}>بستن</button>
-                </div> */}
                 <MobileMenu />
             </div>
         )}
@@ -99,7 +95,7 @@ export default function LabelBottomNavigation() {
             icon={<Person2OutlinedIcon />}
         />  
         </BottomNavigation>
-    </>
+    </div>
     
   );
 }

@@ -1,8 +1,9 @@
 'use client';
-import { base, li } from "framer-motion/client";
+import { div } from "framer-motion/client";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import MobileMenuItems from "./MobileMenuItems";
 
 
 interface SubMenuItem {
@@ -24,6 +25,8 @@ interface MenuItem {
 
 const MobileMenu = () => {
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]); 
+    const [subMenuItems, setSubMenuItems] = useState<SubCategoryMenu[]>([]); 
+
     
     useEffect(() => {
         const fetchData = async () => {
@@ -48,28 +51,39 @@ const MobileMenu = () => {
 
     
   return (
-    <div className="p-0 bg-white fixed ">
+    <div className="fixed top-0 right-0 w-full bg-white z-50">
         <ul>
             {menuItems.map(item =>
                 <li
                     key={item.id}
-                    className="w-[100px] h-[80px] border-b-1 border-[rgba(221,227,236,0.6)] bg-[#F1F6F9] m-0 cursor-pointer"
+                    className="w-1/4 min-w-[80px] min-h-[80px] border-b-1 border-[rgba(221,227,236,0.6)] bg-[#F1F6F9] m-0 cursor-pointer"
+                    onClick={() => setSubMenuItems(item.subCategories ?? [])}
                 >
-                    <div className="py-3">
-                        <Image 
-                            src={item.icon}
-                            alt='menu icon'
-                            width={20}
-                            height={20}
-                            className="w-[25px] h-[25px] m-auto"
-                        />
-                    </div>
-                    <div className="w-[82px] h-[28px] text-[10px] font-semibold text-center m-auto ">
-                        {item.title}
+                    <div className="flex flex-col items-center justify-center space-y-1">
+
+                        <div className="">
+                            <div className="py-3">
+                                <Image 
+                                    src={item.icon}
+                                    alt='menu icon'
+                                    width={20}
+                                    height={20}
+                                    className="w-[25px] h-[25px] m-auto"
+                                />
+                            </div>
+                            <div className="w-[82px] h-[28px] text-[13px] font-semibold text-center m-auto ">
+                                {item.title}
+                            </div>
+                        </div>
                     </div>
                 </li>
             )}
         </ul>
+        {subMenuItems.length > 0 && (
+            <div className="w-3/4 fixed left-0 top-0 bg-white p-4 z-50">
+                <MobileMenuItems subMenuItems={subMenuItems}/>
+            </div>
+        )}
     </div>
   )
 }
