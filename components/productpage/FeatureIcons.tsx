@@ -32,7 +32,7 @@ const featuresIco: features[] =[
 
 const FeatureIcons = () => {
   return (
-    <div className='flex flex-wrap md:gap-[70px] lg:gap-[80px] xl:gap-[120px] justify-center items-center pt-5'>
+    <div className='flex flex-wrap gap-x-36 gap-y-12 md:gap-[70px] lg:gap-[80px] xl:gap-[120px] justify-center items-center py-5'>
         {featuresIco.map(item => 
             <div key={item.id} className='flex flex-col justify-center items-center w-[110px]'>
                 <Image 
@@ -41,7 +41,7 @@ const FeatureIcons = () => {
                     width={64}
                     height={64}
                     className=" cursor-pointer 
-                        w-[28px] h-[28px]
+                        w-[36px] h-[36px]
                         md:w-[64px] md:h-[64px]
                     "
                 />
