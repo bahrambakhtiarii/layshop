@@ -233,8 +233,8 @@ const PdHero = () => {
               </div>
               <div className='lg:hidden w-full'>
                 <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper">
-                {item.importantFeatures.map(feat => 
-                  <SwiperSlide key={feat.id} className='mb-4'>
+                  {item.importantFeatures.map(feat => 
+                  <SwiperSlide key={feat.id} className='mx-5 mb-4'>
                     <ImFeatures features={feat} />
                   </SwiperSlide>
                   
