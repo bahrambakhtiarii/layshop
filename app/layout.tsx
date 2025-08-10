@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
-        <ThemeRegistry options={{ key: 'mui' }}>        
+        <ThemeRegistry >        
           <Header />
           <DesktopMenu />
           <LabelBottomNavigation />

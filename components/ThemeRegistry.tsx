@@ -18,18 +18,17 @@ function createEmotionCache() {
   return createCache({ key: 'css', prepend: true });
 }
 
-// تایپ‌دهی پراپ‌ها برای ThemeRegistry
 interface ThemeRegistryProps {
-  options: { key: string; prepend?: boolean }; // مثلاً { key: 'mui' }
+  // options: { key: string; prepend?: boolean }; 
   children: React.ReactNode;
 }
 
-export default function ThemeRegistry({ options, children }: ThemeRegistryProps) {
+export default function ThemeRegistry({ children }: ThemeRegistryProps) {
   const [{ cache, flush }] = React.useState(() => {
     const cache = createEmotionCache();
     cache.compat = true;
     const prevInsert = cache.insert;
-    let inserted: string[] = []; // تایپ آرایه مشخص شد
+    let inserted: string[] = []; 
     cache.insert = (...args) => {
       const serialized = args[1];
       if (cache.inserted[serialized.name] === undefined) {

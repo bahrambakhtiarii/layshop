@@ -18,6 +18,7 @@ interface ProductSpecifications {
   colors: string[];
 }
 
+
 interface Product {
   id: string;
   img: string;
@@ -97,8 +98,8 @@ const PRODUCTS_DATA: Product[] = [
     inventory: true,
     price: 39900000,
     discount: 0,
-    titleFa: 'اپل واچ سری ۹',
-    titleEn: 'Apple Watch Series 9',
+    titleFa: 'اپل واچ سری 10',
+    titleEn: 'Apple Watch Series 10',
     colors: ['Midnight', 'Starlight', 'Silver', 'Pink'],
     importantFeatures: [
       { title: 'صفحه نمایش', description: 'Always-On Retina' },

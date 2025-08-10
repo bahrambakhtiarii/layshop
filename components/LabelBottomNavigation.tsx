@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import MobileMenu from './navigation/MobileMenu';
 
 export default function LabelBottomNavigation() {
-    const [value, setValue] = useState("home");
+    const [value, setValue] = useState('');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
 
