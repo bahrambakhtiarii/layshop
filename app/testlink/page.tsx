@@ -1,6 +1,9 @@
 import ActionButtons from '@/components/productpage/ActionButtons'
+import PdSpecifications from '@/components/productpage/PdSpecifications'
 import PdHero from '@/components/productpage/PdHero'
+import PdReview from '@/components/productpage/PdReview'
 import React from 'react'
+import PdComments from '@/components/productpage/PdComments'
 
 const page = () => {
   // const productImages = [
@@ -48,6 +51,9 @@ const page = () => {
 
       <PdHero />
       <ActionButtons />
+      <PdReview />
+      <PdSpecifications />
+      <PdComments />
 
     </div>
   )

@@ -4,6 +4,7 @@ import ThemeRegistry from '@/components/ThemeRegistry';
 import Header from "@/components/Header";
 import DesktopMenu from "@/components/navigation/DesktopMenu";
 import LabelBottomNavigation from "@/components/LabelBottomNavigation";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
           <LabelBottomNavigation />
           {children}
         </ThemeRegistry>
+        <Footer />
       </body>
     </html>
   );
