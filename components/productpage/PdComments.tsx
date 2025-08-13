@@ -3,7 +3,6 @@ import Image from "next/image";
 import prof from '../../public/user-prof.png'
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
-import { div } from 'framer-motion/client';
 
 
 
