@@ -43,91 +43,86 @@ interface pdheroinfo {
 
 const PdHero = () => {
 
-    const HERO_DATA:pdheroinfo[] = [
-        {
-        pdColors: [
-            {
-                faName: 'قرمز',
-                enName: 'Red',
-                colorCode: '#fc031c'
-            },
-            {
-                faName: 'سبز',
-                enName: 'Green',
-                colorCode: '#07e041'
-            },
-            {
-                faName: 'زرد',
-                enName: 'Yellow',
-                colorCode: '#e0ce07'
-            },
-            
-        ],
-        inventory: true,
-        price: 2540000,
-        discount: 0, 
-        titleFa: 'هدفون بلوتوثی بیتس مدل Solo 4',
-        titleEn: 'Beats Solo 4 Bluetooth Headphone',
-        importantFeatures: [
-            { id:1, title: 'نویز کنسلینگ', description: 'فعال' },
-            { id:2, title: 'حالت شفافیت', description: 'دارد' },
-            { id:3, title: 'عمر باتری', description: 'تا 6 ساعت پخش موسیقی' },
-            { id:4, title: 'نویز کنسلینگ', description: 'فعال' },
-            { id:5, title: 'نویز کنسلینگ', description: 'فعال' },
-            { id:6, title: 'نویز کنسلینگ', description: 'sc' },
-            { id:7, title: 'نویز کنسلینگ', description: 'فعال' },
-            { id:8, title: 'نویز کنسلینگ', description: 'فعال' },
-        ],
-        mainImg: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
-        slidsImg: [
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/airpod1.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای پشت',
-            },
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/airpod2.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای پهلو',
-            },
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای دیگر',
-            },
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/watch-1.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای دیگر',
-            },
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/watch-2.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای دیگر',
-            },
-            {
-            src: '/product-images/Apple-AirPods-Pro-2/watch-3.jpeg',
-            width: 1200,
-            height: 800,
-            title: 'نمای دیگر',
-            },
-        ],
-        },
-        
-    ]
-    const [selectedColor, setSelectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
 
-
-
-
-
-
-
+  const HERO_DATA:pdheroinfo[] = [
+      {
+      pdColors: [
+          {
+              faName: 'قرمز',
+              enName: 'Red',
+              colorCode: '#fc031c'
+          },
+          {
+              faName: 'سبز',
+              enName: 'Green',
+              colorCode: '#07e041'
+          },
+          {
+              faName: 'زرد',
+              enName: 'Yellow',
+              colorCode: '#e0ce07'
+          },
+          
+      ],
+      inventory: true,
+      price: 2540000,
+      discount: 0, 
+      titleFa: 'هدفون بلوتوثی بیتس مدل Solo 4',
+      titleEn: 'Beats Solo 4 Bluetooth Headphone',
+      importantFeatures: [
+          { id:1, title: 'نویز کنسلینگ', description: 'فعال' },
+          { id:2, title: 'حالت شفافیت', description: 'دارد' },
+          { id:3, title: 'عمر باتری', description: 'تا 6 ساعت پخش موسیقی' },
+          { id:4, title: 'نویز کنسلینگ', description: 'فعال' },
+          { id:5, title: 'نویز کنسلینگ', description: 'فعال' },
+          { id:6, title: 'نویز کنسلینگ', description: 'sc' },
+          { id:7, title: 'نویز کنسلینگ', description: 'فعال' },
+          { id:8, title: 'نویز کنسلینگ', description: 'فعال' },
+      ],
+      mainImg: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
+      slidsImg: [
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/airpod1.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای پشت',
+          },
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/airpod2.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای پهلو',
+          },
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای دیگر',
+          },
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/watch-1.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای دیگر',
+          },
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/watch-2.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای دیگر',
+          },
+          {
+          src: '/product-images/Apple-AirPods-Pro-2/watch-3.jpeg',
+          width: 1200,
+          height: 800,
+          title: 'نمای دیگر',
+          },
+      ],
+      },
+      
+  ]
+    
 
 
 
@@ -276,7 +271,7 @@ const PdHero = () => {
 
 
     {/*add to card*/}
-      <div className='hidden lg:block lg:w-[27%]'>
+      <div className='lg:w-[27%]'>
 
         <AddToCart price={200000} discount={10} warranty={'گارانتی 18 ماهه تجارت لی شاپ'} />
       </div>

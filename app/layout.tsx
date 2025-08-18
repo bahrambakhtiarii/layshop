@@ -29,10 +29,11 @@ export default function RootLayout({
         <ThemeRegistry >        
           <Header />
           <DesktopMenu />
-          <LabelBottomNavigation />
+          {/* <LabelBottomNavigation /> */}
           {children}
+          <Footer />
         </ThemeRegistry>
-        <Footer />
+        
       </body>
     </html>
   );
