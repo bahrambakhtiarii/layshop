@@ -10,7 +10,6 @@ export default function ProductsLayout({
     <html lang="fa" dir="rtl">
       <body className="antialiased">
         <ThemeRegistry>
-          <Header />
           {children}
         </ThemeRegistry>
       </body>

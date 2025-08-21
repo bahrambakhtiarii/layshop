@@ -13,126 +13,60 @@ import "swiper/css";
 
 
 
-interface color{
-    faName: string,
-    enName: string,
-    colorCode: string
+interface PdColors {
+  faName: string;
+  enName: string;
+  colorCode: string;
 }
-interface ProductImportantFeatures {
-  id: number
+interface ImportantFeatures {
+  id: number;
   title: string;
   description: string;
 }
-interface ProductSlids {
-  src: string;
-  width: number;
-  height: number;
-  title: string;
-}
-interface pdheroinfo {
-    pdColors: color[],
-    inventory: boolean;
+interface SlidsImg {
+    src: string;
+    width: number;
+    height: number;
+    title: string;
+  }
+type Props = {
+    id: number,
+    colors: PdColors[],
     price: number;
-    discount: number; 
     titleFa: string;
     titleEn: string;
-    importantFeatures: ProductImportantFeatures[];
+    imFeatures: ImportantFeatures[];
     mainImg: string;
-    slidsImg: ProductSlids[];
+    pDslidsImg: SlidsImg[];
+    cartOptions: {
+    discount: number;
+    warranty: string;
+  };
 }
 
-const PdHero = () => {
+const PdHero: React.FC<Props> = ({
+  id,
+  colors = [],
+  price,
+  titleFa,
+  titleEn,
+  imFeatures = [],
+  mainImg,
+  pDslidsImg = [],
+  cartOptions,
+
+}) =>{
 
   const [selectedColor, setSelectedColor] = useState('');
-
-  const HERO_DATA:pdheroinfo[] = [
-      {
-      pdColors: [
-          {
-              faName: 'قرمز',
-              enName: 'Red',
-              colorCode: '#fc031c'
-          },
-          {
-              faName: 'سبز',
-              enName: 'Green',
-              colorCode: '#07e041'
-          },
-          {
-              faName: 'زرد',
-              enName: 'Yellow',
-              colorCode: '#e0ce07'
-          },
-          
-      ],
-      inventory: true,
-      price: 2540000,
-      discount: 0, 
-      titleFa: 'هدفون بلوتوثی بیتس مدل Solo 4',
-      titleEn: 'Beats Solo 4 Bluetooth Headphone',
-      importantFeatures: [
-          { id:1, title: 'نویز کنسلینگ', description: 'فعال' },
-          { id:2, title: 'حالت شفافیت', description: 'دارد' },
-          { id:3, title: 'عمر باتری', description: 'تا 6 ساعت پخش موسیقی' },
-          { id:4, title: 'نویز کنسلینگ', description: 'فعال' },
-          { id:5, title: 'نویز کنسلینگ', description: 'فعال' },
-          { id:6, title: 'نویز کنسلینگ', description: 'sc' },
-          { id:7, title: 'نویز کنسلینگ', description: 'فعال' },
-          { id:8, title: 'نویز کنسلینگ', description: 'فعال' },
-      ],
-      mainImg: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
-      slidsImg: [
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/airpod1.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای پشت',
-          },
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/airpod2.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای پهلو',
-          },
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/airpod3.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای دیگر',
-          },
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/watch-1.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای دیگر',
-          },
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/watch-2.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای دیگر',
-          },
-          {
-          src: '/product-images/Apple-AirPods-Pro-2/watch-3.jpeg',
-          width: 1200,
-          height: 800,
-          title: 'نمای دیگر',
-          },
-      ],
-      },
-      
-  ]
-    
-
+  
 
 
   return (
     <div className='flex p-2 h-auto mb-20'>
 
     {/*info*/}
-    {HERO_DATA.map(item => 
-      <div key={item.titleEn} 
-      className='w-full lg:w-[73%] bg-white lg:ml-2 lg:border border-[#D9D9D9] lg:rounded-[30px] lg:flex flex-col justify-between shadow-sm'>
+      <div key={id} 
+        className='w-full lg:w-[73%] bg-white lg:ml-2 lg:border border-[#D9D9D9] lg:rounded-[30px] lg:flex flex-col justify-between shadow-sm'>
 
         {/*main*/}
         <div className='flex flex-col p-3 lg:flex-row lg:pb-3'>
@@ -140,8 +74,8 @@ const PdHero = () => {
           <div className='w-full flex items-center justify-center lg:w-[45%]'>
           
               <ProductSlid
-                  productImages={item.slidsImg}
-                  mainImg={item.mainImg}
+                  productImages={pDslidsImg}
+                  mainImg={mainImg}
               />
           
           </div>
@@ -151,11 +85,11 @@ const PdHero = () => {
 
             {/*title*/}
             <div className='my-8 lg:my-13'>
-              <h3 className='text-lg md:text-xl font-bold'>{item.titleFa}</h3>
+              <h3 className='text-lg md:text-xl font-bold'>{titleFa}</h3>
             
               <div className="flex items-center gap-2 mt-5 w-full overflow-hidden">
                 <span className="whitespace-nowrap text-[#9BA4B4] text-[10px] md:text-sm font-medium shrink-0">
-                  {item.titleEn}
+                  {titleEn}
                 </span>
 
                 <div className="h-px bg-gray-300 flex-1"></div>
@@ -167,7 +101,7 @@ const PdHero = () => {
               <p className='font-semibold text-sm md:text-xl mb-5'>رنگ: {selectedColor}</p>
 
               <div className="flex flex-wrap gap-4 ">
-                {item.pdColors.map(col => 
+                {colors.map(col => 
                   <fieldset key={col.enName} >
                     <legend className="sr-only">Color</legend>
 
@@ -222,13 +156,13 @@ const PdHero = () => {
             <div>
               <p className='text-sm md:text-xl font-semibold mb-4'>ویژگی های مهم:</p>
               <div className="hidden lg:grid gap-0.5 grid-cols-3">
-                {item.importantFeatures.slice(0, 6).map(feat => 
+                {imFeatures.slice(0, 6).map(feat => 
                   <ImFeatures key={feat.id} features={feat} />
                 )}
               </div>
               <div className='lg:hidden w-full'>
                 <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper">
-                  {item.importantFeatures.map(feat => 
+                  {imFeatures.map(feat => 
                   <SwiperSlide key={feat.id} className='mx-5 mb-4'>
                     <ImFeatures features={feat} />
                   </SwiperSlide>
@@ -262,7 +196,7 @@ const PdHero = () => {
             
 
       </div>
-    )}
+    
       
 
 
@@ -273,7 +207,7 @@ const PdHero = () => {
     {/*add to card*/}
       <div className='lg:w-[27%]'>
 
-        <AddToCart price={200000} discount={10} warranty={'گارانتی 18 ماهه تجارت لی شاپ'} />
+        <AddToCart price={price} discount={cartOptions.discount} warranty={cartOptions.warranty} />
       </div>
 
 

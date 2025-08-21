@@ -49,11 +49,12 @@ const page = () => {
     <div>
       {/* <ProductSlid productImages={productImages} /> */}
 
-      <PdHero />
+      {/* <PdHero />
       <ActionButtons />
       <PdReview />
       <PdSpecifications />
-      <PdComments />
+      <PdComments /> */}
+      test
 
     </div>
   )
